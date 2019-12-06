@@ -1,18 +1,27 @@
 .flexContainer {
     display: flex;
     flex-direction: column;
-    background-color: black;
-    color: whitesmoke;
+    align-items: center;
+    margin: 5px auto;
+    background-color: white;
+    color: black;
 }
 
-.upperThird {
-    flex-direction: row;
+.upperThird, .middleThird, .bottomThird {
+    height: 40px;
+    margin-bottom: 33%;
+}
+.answers {
+    background-color: white;
+    color: black;
+    border: 2px solid #4CAF50;
+    margin: 40px;
+    width: 250px;
+    height: 100px;
 }
 
-.middleThird {
-    flex-direction: row;
-}
-
-.bottomThird {
-    flex-direction: row;
+.answers:hover {
+    background-color: #4CAF50;
+    color: white;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
