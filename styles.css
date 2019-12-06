@@ -1,8 +1,18 @@
-body {
+.flexContainer {
     display: flex;
+    flex-direction: column;
     background-color: black;
+    color: whitesmoke;
 }
 
-h1 {
-    color: whitesmoke;
+.upperThird {
+    flex-direction: row;
+}
+
+.middleThird {
+    flex-direction: row;
+}
+
+.bottomThird {
+    flex-direction: row;
 }
