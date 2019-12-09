@@ -2,26 +2,93 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 5px auto;
-    background-color: white;
-    color: black;
+    /* margin: 5px auto; */
+    background-image: url('zwartevilt_@2X.jpg');
+    background-color: #0B0C10;
+    color: #66FCF1;
+    font-family: 'Ubuntu', sans-serif;
 }
 
-.upperThird, .middleThird, .bottomThird {
+/* .upperThird, .middleThird {
     height: 40px;
-    margin-bottom: 33%;
+    margin: 5%;
+} */
+
+.bottomThird {
+    margin-top: 5%;
+
 }
+
+#triviaGame {
+    margin: 10px;
+    text-align: center;
+    text-shadow: 2px 5px rgba(69, 161, 156, 0.2);
+    font-size: 250%
+}
+
+table, th {
+    background-color: #0B0C10 ;
+    border-bottom: 3px solid #0B0C10;
+    border-collapse: collapse;
+    padding: 50px;
+    width: fit-content;
+    vertical-align: top;
+    text-align: center;
+}
+
+th:hover {
+    background-color:rgba(10, 11, 15, 0.14);
+    border-bottom: 3px solid #45A29E;
+    /* opacity: 0.1; */
+    /* color: black; */
+    /* box-shadow:  0 12px 16px 0 rgba(69, 161, 156, 0.2), 0 12px 16px 0 rgba(69, 161, 156, 0.2); */
+}
+
+.questionBox {
+    border: 2px solid black  ;
+    margin: 25px;
+    padding: 25px;
+    background: #0B0C10;
+    color: #66FCF1;
+    box-shadow: 0 12px 16px 0 rgba(69, 161, 156, 0.2), 0 17px 50px 0 rgba(69, 161, 156, 0.2);
+    
+}
+
+#question {
+    width: 600px;
+    padding: 20px;
+    margin: 10px;
+
+}
+
 .answers {
-    background-color: white;
-    color: black;
-    border: 2px solid #4CAF50;
+    background-color: #1F2833;
+    color: #66FCF1;
+    border: 2px solid #66FCF1;
     margin: 40px;
     width: 250px;
     height: 100px;
 }
 
 .answers:hover {
-    background-color: #4CAF50;
-    color: white;
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    background-color: #0B0C10;
+    color: #45A29E;
+    box-shadow: 0 12px 16px 0 rgba(69, 161, 156, 0.2), 0 17px 50px 0 rgba(69, 161, 156, 0.2);
 }
+
+#copyright {
+    border: 1px solid black;
+    background-color: #0B0C10;
+    color: #66FCF1;
+    padding: 10px;
+    width: 100%;
+    box-shadow: 0 6px 8px 0 rgba(69, 161, 156, 0.2), 0 6px 12px 0 rgba(69, 161, 156, 0.2);
+
+}
+
+/* color theme
+#0B0C10 rgba(10, 11, 15, 0.14) // rgba(10, 11, 15, 0.67)
+#1F2833
+#C5C6C7
+#66FCF1
+#45A29E  rgba(69, 161, 156, 0.2)*/
