@@ -52,6 +52,7 @@ function makeQuiz(quizData) {
       quizList.answerList.push(quizItem)
     })
   setQuestion(questionList[i])
+  // correct_answer = quizList.correct_answer
   }
   placeQuestions()
   //setTimeout 1000
@@ -86,18 +87,19 @@ function placeQuestions() {
 
 function checkAnswer() {
   console.log("checking...");
-  //if ( 'userInput' = correctAnswer) {
-  //  alert('Correct!')
+  if ( 'userInput' === correctAnswer) {
+   alert('Correct!')
   //  // change score here
   //      if (question = 10) {
   //          alert('You got ' + scoreNum + '.')
   //      } else {move on to next question}
-  //} else {
-  //    alert('Incorrect')
+  } else {
+     alert('Incorrect')
   //      if (question = 10) {
   //          alert('You got ' + scoreNum + '.')
   //      } else {move on to next question}
   //}
+  }
 }
 
 // console.log(quizList);
