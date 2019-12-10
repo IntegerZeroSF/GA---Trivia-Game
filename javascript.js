@@ -3,6 +3,7 @@
 //https://opentdb.com/api_config.php
 //Open Trivia Database API
 //https://opentdb.com/api.php?amount=10&category=15&difficulty=easy&type=multiple
+//https://opentdb.com/api.php?amount=1&category=15&difficulty=easy&type=multiple //Backup Plan
 
 let scoreNum = document.querySelector("#score");
 let ruleSet = document.querySelector("#rules");
@@ -37,27 +38,36 @@ function grabQuiz() {
 }
 
 let questionList = [];
+let correctAnswer;
 
 function makeQuiz(quizData) {
+  // console.log(quizData)
+  // console.log(quizData.incorrect_answers)
   for (i = 0; i < quizData.results.length; i++) {
-    var quizList = quizData.results[i];
+    let quizList = quizData.results[i];
     questionList.push(quizList);
     questionList[i].answerList = [];
-    console.log(quizList)
     questionList[i].answerList.push(quizList.correct_answer);
-    console.log(quizList.incorrect_answers)
-    // for (i = 0; i < quizList.incorrect_answers.length; i++) {
-    //   questionList[i].answerList.push(quizList.incorrect_answers[i].length); // THIS NEEDS SOMETHING MORE EYES PLS
-    // }
+    questionList[i].incorrect_answers.forEach(quizItem => {
+      quizList.answerList.push(quizItem)
+    })
+  setQuestion(questionList[i])
   }
-  // var correctAnwser = quizList.corrext_answer
-  // answerList.sort(math.random())
-  //questions.innerHTML = questionList[0].question
-  //answerOne.innerHTML = questionList[0].answerList[0]
-  //answerTwo.innerHTML = questionList[0].answerList[1]
-  //answerThree.innerHTML = questionList[0].answerList[2]
-  //answerFour.innerHTML = questionList[0].answerList[3]
+  placeQuestions()
+  //setTimeout 1000
   //timer()
+}
+
+function setQuestion(smileyFace) {
+  smileyFace.answerList.sort(() => Math.random() - 0.5)
+}
+
+function placeQuestions() {
+  questions.innerHTML = questionList[0].question
+  answerOne.innerHTML = questionList[0].answerList[0]
+  answerTwo.innerHTML = questionList[0].answerList[1]
+  answerThree.innerHTML = questionList[0].answerList[2]
+  answerFour.innerHTML = questionList[0].answerList[3]
 }
 
 // function timer() {
@@ -67,6 +77,9 @@ function makeQuiz(quizData) {
   //  timeLeft = i
   //  if(i = 0){
   //    alert('Time's Up!)
+  //    if (question = 10) {
+  //        alert('You got ' + scoreNum + '.')
+  //    } else {move on to next question}
   //  }
   //} 
 // }
@@ -83,15 +96,8 @@ function checkAnswer() {
   //    alert('Incorrect')
   //      if (question = 10) {
   //          alert('You got ' + scoreNum + '.')
-  //      } {move on to next question}
+  //      } else {move on to next question}
   //}
-  //checks
-  // if correct_anwser is chosen +1 to score
-  // else move to next question
-  // if timer = 0
-  // move to next question
-  // if quiestion = 10
-  // end
 }
 
 // console.log(quizList);
