@@ -24,3 +24,8 @@ Gold
  -a bunch of questiions
   -start adding additonal catagories
  
+Day 1
+
+  -Got some basic functionality done
+  -Grabbed the API and have it's data stored. Random questions is working properly
+  -Did a lot of CSS work
