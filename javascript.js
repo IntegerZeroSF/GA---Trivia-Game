@@ -17,10 +17,10 @@ let answerThree = document.querySelector("#answer3");
 let answerFour = document.querySelector("#answer4");
 
 startGameButton.addEventListener("click", grabQuiz);
-answerOne.addEventListener("click", checkAnswer);
-answerTwo.addEventListener("click", checkAnswer);
-answerThree.addEventListener("click", checkAnswer);
-answerFour.addEventListener("click", checkAnswer);
+answerOne.addEventListener("click", checkAnswerOne);
+answerTwo.addEventListener("click", checkAnswerTwo);
+answerThree.addEventListener("click", checkAnswerThree);
+answerFour.addEventListener("click", checkAnswerFour);
 
 let quizGrab =
   "https://opentdb.com/api.php?amount=10&category=15&difficulty=easy&type=multiple";
@@ -52,7 +52,7 @@ function makeQuiz(quizData) {
       quizList.answerList.push(quizItem)
     })
   setQuestion(questionList[i])
-  // correct_answer = quizList.correct_answer
+  // correctAnswer = questionList[0].correct_answer
   }
   placeQuestions()
   //setTimeout 1000
@@ -64,6 +64,7 @@ function setQuestion(smileyFace) {
 }
 
 function placeQuestions() {
+  correctAnswer = questionList[0].correct_answer
   questions.innerHTML = questionList[0].question
   answerOne.innerHTML = questionList[0].answerList[0]
   answerTwo.innerHTML = questionList[0].answerList[1]
@@ -85,20 +86,66 @@ function placeQuestions() {
   //} 
 // }
 
-function checkAnswer() {
+let score = 0
+let turnCounter = 0
+
+function checkAnswerOne() {
+  turnCounter ++
   console.log("checking...");
-  if ( 'userInput' === correctAnswer) {
+  if ( answerOne.innerText === correctAnswer) {
    alert('Correct!')
-  //  // change score here
-  //      if (question = 10) {
-  //          alert('You got ' + scoreNum + '.')
-  //      } else {move on to next question}
-  } else {
+    score ++
+    scoreNum.innerHTML = score
+       if (turnCounter = 10) { alert('You got ' + scoreNum.innerText + '.') }
+  }
+  else {
      alert('Incorrect')
-  //      if (question = 10) {
-  //          alert('You got ' + scoreNum + '.')
-  //      } else {move on to next question}
-  //}
+       if (turnCounter = 10) { alert('You got ' + scoreNum.innerText + '.') }
+  }
+}
+
+function checkAnswerTwo() {
+  turnCounter ++  
+  console.log("checking...");
+  if ( answerTwo.innerText === correctAnswer) {
+   alert('Correct!')
+    score ++
+    scoreNum.innerHTML = score
+       if (turnCounter = 10) { alert('You got ' + scoreNum.innerText + '.') }
+  }
+  else {
+     alert('Incorrect')
+       if (turnCounter = 10) { alert('You got ' + scoreNum.innerText + '.') }
+  }
+}
+
+function checkAnswerThree() {
+  turnCounter ++
+  console.log("checking...");
+  if ( answerThree.innerText === correctAnswer) {
+   alert('Correct!')
+    score ++
+    scoreNum.innerHTML = score
+       if (turnCounter = 10) { alert('You got ' + scoreNum.innerText + '.') }
+  }
+  else {
+     alert('Incorrect')
+       if (turnCounter = 10) { alert('You got ' + scoreNum.innerText + '.') }
+  }
+}
+
+function checkAnswerFour() {
+  turnCounter ++
+  console.log("checking...");
+  if ( answerFour.innerText === correctAnswer) {
+   alert('Correct!')
+    score ++
+    scoreNum.innerHTML = score
+       if (turnCounter = 10) { alert('You got ' + scoreNum.innerText + '.') }
+  }
+  else {
+     alert('Incorrect')
+       if (turnCounter = 10) { alert('You got ' + scoreNum.innerText + '.') }
   }
 }
 
