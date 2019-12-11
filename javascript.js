@@ -55,7 +55,6 @@ function makeQuiz(quizData) {
   // correctAnswer = questionList[0].correct_answer
   }
   placeQuestions()
-  //setTimeout 1000
   //timer()
 }
 
@@ -63,60 +62,65 @@ function setQuestion(smileyFace) {
   smileyFace.answerList.sort(() => Math.random() - 0.5)
 }
 
-function placeQuestions() {
-  correctAnswer = questionList[0].correct_answer
-  questions.innerHTML = questionList[0].question
-  answerOne.innerHTML = questionList[0].answerList[0]
-  answerTwo.innerHTML = questionList[0].answerList[1]
-  answerThree.innerHTML = questionList[0].answerList[2]
-  answerFour.innerHTML = questionList[0].answerList[3]
+
+
+function placeQuestions(move = 0) {
+  correctAnswer = questionList[move].correct_answer
+  //if ( turnCounter < 10) { questionList[0]++ }
+  questions.innerHTML = questionList[move].question
+  answerOne.innerHTML = questionList[move].answerList[0]
+  answerTwo.innerHTML = questionList[move].answerList[1]
+  answerThree.innerHTML = questionList[move].answerList[2]
+  answerFour.innerHTML = questionList[move].answerList[3]
+  // move = move++
 }
 
-// function timer() {
-  //let timeLeft = 30
-  //for(i = 30; i >= 0; i--) {
-  //  setTimeout(tick, 1000)
-  //  timeLeft = i
-  //  if(i = 0){
-  //    alert('Time's Up!)
-  //    if (question = 10) {
-  //        alert('You got ' + scoreNum + '.')
-  //    } else {move on to next question}
-  //  }
-  //} 
-// }
+function timer() {
+  let x = 30
+  timerNum.innerText = 30
+  setInterval( function(){
+    if( x > 0) {
+      x--
+      timerNum.innerText = x 
+      // console.log(timerNum)
+    }; }, 1000)
+  }
+  
 
+// let move = 0
 let score = 0
 let turnCounter = 0
 
 function checkAnswerOne() {
-  turnCounter ++
+  turnCounter ++  
   console.log("checking...");
   if ( answerOne.innerText === correctAnswer) {
    alert('Correct!')
     score ++
     scoreNum.innerHTML = score
-       if (turnCounter = 10) { alert('You got ' + scoreNum.innerText + '.') }
+       if (turnCounter == 10) { alert('You got ' + scoreNum.innerText + '.') }
   }
   else {
      alert('Incorrect')
-       if (turnCounter = 10) { alert('You got ' + scoreNum.innerText + '.') }
+       if (turnCounter == 10) { alert('You got ' + scoreNum.innerText + '.') }
   }
+placeQuestions(+turnCounter)
 }
 
 function checkAnswerTwo() {
-  turnCounter ++  
+  turnCounter ++
   console.log("checking...");
   if ( answerTwo.innerText === correctAnswer) {
    alert('Correct!')
     score ++
     scoreNum.innerHTML = score
-       if (turnCounter = 10) { alert('You got ' + scoreNum.innerText + '.') }
+       if (turnCounter == 10) { alert('You got ' + scoreNum.innerText + '.') }
   }
   else {
      alert('Incorrect')
-       if (turnCounter = 10) { alert('You got ' + scoreNum.innerText + '.') }
+       if (turnCounter == 10) { alert('You got ' + scoreNum.innerText + '.') }
   }
+placeQuestions(+turnCounter)
 }
 
 function checkAnswerThree() {
@@ -126,12 +130,13 @@ function checkAnswerThree() {
    alert('Correct!')
     score ++
     scoreNum.innerHTML = score
-       if (turnCounter = 10) { alert('You got ' + scoreNum.innerText + '.') }
+       if (turnCounter == 10) { alert('You got ' + scoreNum.innerText + '.') }
   }
   else {
      alert('Incorrect')
-       if (turnCounter = 10) { alert('You got ' + scoreNum.innerText + '.') }
+       if (turnCounter == 10) { alert('You got ' + scoreNum.innerText + '.') }
   }
+placeQuestions(+turnCounter)
 }
 
 function checkAnswerFour() {
@@ -141,12 +146,14 @@ function checkAnswerFour() {
    alert('Correct!')
     score ++
     scoreNum.innerHTML = score
-       if (turnCounter = 10) { alert('You got ' + scoreNum.innerText + '.') }
+       if (turnCounter == 10) { alert('You got ' + scoreNum.innerText + '.') }
   }
   else {
      alert('Incorrect')
-       if (turnCounter = 10) { alert('You got ' + scoreNum.innerText + '.') }
+       if (turnCounter == 10) { alert('You got ' + scoreNum.innerText + '.') }
   }
+placeQuestions(+turnCounter)
 }
 
 // console.log(quizList);
+//analyze e.target.innerText
