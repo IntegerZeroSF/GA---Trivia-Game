@@ -22,7 +22,7 @@ answerThree.addEventListener("click", checkAnswerThree);
 answerFour.addEventListener("click", checkAnswerFour);
 
 let quizGrab =
-  "https://opentdb.com/api.php?amount=10&category=15&type=multiple";
+  "https://opentdb.com/api.php?amount=30&category=15&type=multiple";
 
 function grabQuiz() {
   fetch(quizGrab)
@@ -53,26 +53,26 @@ function makeQuiz(quizData) {
   setQuestion(questionList[i])
   }
   placeQuestions()
+  timer()
 }
 
 function setQuestion(smileyFace) {
   smileyFace.answerList.sort(() => Math.random() - 0.5)
 }
 
-function timer() {
-  let x = 10
-  timerNum.innerText = 10
-  setInterval( function(){
-    if( x > 0) {
-      x--
+let score = 0
+let turnCounter = 0
+let x = 60
+
+function timer() {setInterval(() => {
+    if( x >= 0) {
       timerNum.innerText = x
-      if ( timerNum.innerText === 0) {
-        alert("Time's up!") 
-        placeQuestions(+turnCounter)
-    };
+      if ( x === 0) {
+        endGame()
+      } else { x-- }
     } 
   }, 1000)
-  }
+}
 
 
 function placeQuestions(move = 0) {
@@ -82,12 +82,7 @@ function placeQuestions(move = 0) {
   answerTwo.innerHTML = questionList[move].answerList[1]
   answerThree.innerHTML = questionList[move].answerList[2]
   answerFour.innerHTML = questionList[move].answerList[3]
-  // return timer()
-  // timer()
 }
-  
-let score = 0
-let turnCounter = 0
 
 function checkAnswerOne() {
   turnCounter ++  
@@ -96,11 +91,11 @@ function checkAnswerOne() {
   answerOne.innerText = 'Correct!'
     score ++
     scoreNum.innerHTML = score
-       if (turnCounter == 10) { endGame() }
+       if (turnCounter == 30) { endGame() }
   }
   else {
      answerOne.innerText = 'Incorrect'
-       if (turnCounter == 10) { endGame() }
+       if (turnCounter == 30) { endGame() }
   }
 setTimeout(placeQuestions(+turnCounter), 2000)
 }
@@ -113,12 +108,12 @@ function checkAnswerTwo() {
     score ++
     scoreNum.innerHTML = score
     setTimeout(function(){}, 1000)
-       if (turnCounter == 10) { endGame() }
+       if (turnCounter == 30) { endGame() }
   }
   else {
      answerTwo.innerText = 'Incorrect'
      setTimeout(function(){}, 1000)
-       if (turnCounter == 10) { endGame() }
+       if (turnCounter == 30) { endGame() }
   }
 setTimeout(placeQuestions(+turnCounter), 2000)
 }
@@ -131,12 +126,12 @@ function checkAnswerThree() {
     score ++
     scoreNum.innerHTML = score
     setTimeout(function(){}, 1000)
-       if (turnCounter == 10) { endGame() }
+       if (turnCounter == 30) { endGame() }
   }
   else {
      answerThree.innerText = 'Incorrect'
      setTimeout(function(){}, 1000)
-       if (turnCounter == 10) { endGame() }
+       if (turnCounter == 30) { endGame() }
   }
 setTimeout(placeQuestions(+turnCounter), 2000)
 }
@@ -149,12 +144,12 @@ function checkAnswerFour() {
     score ++
     scoreNum.innerHTML = score
     setTimeout(function(){}, 1000)
-       if (turnCounter == 10) { endGame() }
+       if (turnCounter == 30) { endGame() }
   }
   else {
       answerFour.innerText = 'Incorrect'
       setTimeout(function(){}, 1000)
-       if (turnCounter == 10) { endGame() }
+       if (turnCounter == 30) { endGame() }
   }
 setTimeout(placeQuestions(+turnCounter), 2000)
 }
@@ -163,8 +158,9 @@ setTimeout(placeQuestions(+turnCounter), 2000)
 //analyze e.target.innerText // play with this tomorrow
 
 function endGame() {
-  if ( score > 8) {alert('You got ' + scoreNum.innerText + ' ! Excellent job!') }
-  else if ( score > 5) {alert('You got ' + scoreNum.innerText + ' ! Good job.')}
+  if (score > 23) {alert('You got ' + scoreNum.innerText + ' ! Excellent job!') }
+  else if (score > 15) {alert('You got ' + scoreNum.innerText + ' ! You did fantastic.')}
+  else if (score > 7) {alert('You got ' + scoreNum.innerText + ' ! Good job.')}
   else {alert('You got ' + scoreNum.innerText + ' ! Try again...')}
-  location.reload(); 
+  window.location.reload(false);
 }
