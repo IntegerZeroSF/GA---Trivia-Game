@@ -1,8 +1,7 @@
-// console.log("Let's Begin!");
-
 //https://opentdb.com/api_config.php
 //Open Trivia Database API
 //https://opentdb.com/api.php?amount=10&category=15&difficulty=easy&type=multiple
+//https://opentdb.com/api.php?amount=10&category=15&type=multiple
 //https://opentdb.com/api.php?amount=1&category=15&difficulty=easy&type=multiple //Backup Plan
 
 let scoreNum = document.querySelector("#score");
@@ -23,7 +22,7 @@ answerThree.addEventListener("click", checkAnswerThree);
 answerFour.addEventListener("click", checkAnswerFour);
 
 let quizGrab =
-  "https://opentdb.com/api.php?amount=10&category=15&difficulty=easy&type=multiple";
+  "https://opentdb.com/api.php?amount=10&category=15&type=multiple";
 
 function grabQuiz() {
   fetch(quizGrab)
@@ -52,10 +51,8 @@ function makeQuiz(quizData) {
       quizList.answerList.push(quizItem)
     })
   setQuestion(questionList[i])
-  // correctAnswer = questionList[0].correct_answer
   }
   placeQuestions()
-  //timer()
 }
 
 function setQuestion(smileyFace) {
@@ -66,94 +63,108 @@ function setQuestion(smileyFace) {
 
 function placeQuestions(move = 0) {
   correctAnswer = questionList[move].correct_answer
-  //if ( turnCounter < 10) { questionList[0]++ }
   questions.innerHTML = questionList[move].question
   answerOne.innerHTML = questionList[move].answerList[0]
   answerTwo.innerHTML = questionList[move].answerList[1]
   answerThree.innerHTML = questionList[move].answerList[2]
   answerFour.innerHTML = questionList[move].answerList[3]
-  // move = move++
+  // timer()
 }
 
 function timer() {
-  let x = 30
-  timerNum.innerText = 30
+  let x = 10
+  timerNum.innerText = 10
   setInterval( function(){
     if( x > 0) {
       x--
-      timerNum.innerText = x 
+      timerNum.innerText = x
       // console.log(timerNum)
-    }; }, 1000)
+    }; 
+    if ( timerNum.innerText === 0) {
+      alert("Time's up!") 
+      placeQuestions(+turnCounter)
+    }
+  }, 1000)
   }
   
 
-// let move = 0
 let score = 0
 let turnCounter = 0
 
 function checkAnswerOne() {
   turnCounter ++  
-  console.log("checking...");
+  timerNum.innerText = 30
+  // console.log("checking...");
   if ( answerOne.innerText === correctAnswer) {
    alert('Correct!')
     score ++
     scoreNum.innerHTML = score
-       if (turnCounter == 10) { alert('You got ' + scoreNum.innerText + '.') }
+       if (turnCounter == 10) { endGame() }
   }
   else {
      alert('Incorrect')
-       if (turnCounter == 10) { alert('You got ' + scoreNum.innerText + '.') }
+       if (turnCounter == 10) { endGame() }
   }
 placeQuestions(+turnCounter)
 }
 
 function checkAnswerTwo() {
   turnCounter ++
-  console.log("checking...");
+  timerNum.innerText = 30
+  // console.log("checking...");
   if ( answerTwo.innerText === correctAnswer) {
    alert('Correct!')
     score ++
     scoreNum.innerHTML = score
-       if (turnCounter == 10) { alert('You got ' + scoreNum.innerText + '.') }
+       if (turnCounter == 10) { endGame() }
   }
   else {
      alert('Incorrect')
-       if (turnCounter == 10) { alert('You got ' + scoreNum.innerText + '.') }
+       if (turnCounter == 10) { endGame() }
   }
 placeQuestions(+turnCounter)
 }
 
 function checkAnswerThree() {
   turnCounter ++
-  console.log("checking...");
+  timerNum.innerText = 30
+  // console.log("checking...");
   if ( answerThree.innerText === correctAnswer) {
    alert('Correct!')
     score ++
     scoreNum.innerHTML = score
-       if (turnCounter == 10) { alert('You got ' + scoreNum.innerText + '.') }
+       if (turnCounter == 10) { endGame() }
   }
   else {
      alert('Incorrect')
-       if (turnCounter == 10) { alert('You got ' + scoreNum.innerText + '.') }
+       if (turnCounter == 10) { endGame() }
   }
 placeQuestions(+turnCounter)
 }
 
 function checkAnswerFour() {
   turnCounter ++
-  console.log("checking...");
+  timerNum.innerText = 30
+  // console.log("checking...");
   if ( answerFour.innerText === correctAnswer) {
    alert('Correct!')
     score ++
     scoreNum.innerHTML = score
-       if (turnCounter == 10) { alert('You got ' + scoreNum.innerText + '.') }
+       if (turnCounter == 10) { endGame() }
   }
   else {
      alert('Incorrect')
-       if (turnCounter == 10) { alert('You got ' + scoreNum.innerText + '.') }
+       if (turnCounter == 10) { endGame() }
   }
 placeQuestions(+turnCounter)
 }
 
 // console.log(quizList);
-//analyze e.target.innerText
+//analyze e.target.innerText // play with this tomorrow
+
+function endGame() {
+  if ( score > 8) {alert('You got ' + scoreNum.innerText + ' ! Excellent job!') }
+  else if ( score > 5) {alert('You got ' + scoreNum.innerText + ' ! Good job.')}
+  else {alert('You got ' + scoreNum.innerText + ' ! Try again...')}
+  location.reload(); 
+}
