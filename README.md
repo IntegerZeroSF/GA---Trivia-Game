@@ -24,8 +24,25 @@ Gold
  -a bunch of questiions
   -start adding additonal catagories
  
-Day 1
+Day 1 (12/9/19)
 
   -Got some basic functionality done
   -Grabbed the API and have it's data stored. Random questions is working properly
   -Did a lot of CSS work
+
+Day 2-3 (12/10-11/19)
+
+  -Made all the functionality
+  -Finalized the styling
+  -Still bugs
+  
+Day 4 (12/12/19)
+
+  -Change a function and made it work
+  -Styling is done and everything works
+  
+Future goals 
+
+  -Add an options menu with Catagories, Difficulty, and Number of Questions
+  -Adjust timer to reflect number of questions
+  -Add animations and make itr more visually enjoyable
