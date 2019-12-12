@@ -59,6 +59,20 @@ function setQuestion(smileyFace) {
   smileyFace.answerList.sort(() => Math.random() - 0.5)
 }
 
+function timer() {
+  let x = 10
+  timerNum.innerText = 10
+  setInterval( function(){
+    if( x > 0) {
+      x--
+      timerNum.innerText = x
+      if ( timerNum.innerText === 0) {
+        alert("Time's up!") 
+        placeQuestions(+turnCounter)
+    };
+    } 
+  }, 1000)
+  }
 
 
 function placeQuestions(move = 0) {
@@ -68,95 +82,81 @@ function placeQuestions(move = 0) {
   answerTwo.innerHTML = questionList[move].answerList[1]
   answerThree.innerHTML = questionList[move].answerList[2]
   answerFour.innerHTML = questionList[move].answerList[3]
+  // return timer()
   // timer()
 }
-
-function timer() {
-  let x = 10
-  timerNum.innerText = 10
-  setInterval( function(){
-    if( x > 0) {
-      x--
-      timerNum.innerText = x
-      // console.log(timerNum)
-    }; 
-    if ( timerNum.innerText === 0) {
-      alert("Time's up!") 
-      placeQuestions(+turnCounter)
-    }
-  }, 1000)
-  }
   
-
 let score = 0
 let turnCounter = 0
 
 function checkAnswerOne() {
   turnCounter ++  
-  timerNum.innerText = 30
   // console.log("checking...");
   if ( answerOne.innerText === correctAnswer) {
-   alert('Correct!')
+  answerOne.innerText = 'Correct!'
     score ++
     scoreNum.innerHTML = score
        if (turnCounter == 10) { endGame() }
   }
   else {
-     alert('Incorrect')
+     answerOne.innerText = 'Incorrect'
        if (turnCounter == 10) { endGame() }
   }
-placeQuestions(+turnCounter)
+setTimeout(placeQuestions(+turnCounter), 2000)
 }
 
 function checkAnswerTwo() {
   turnCounter ++
-  timerNum.innerText = 30
   // console.log("checking...");
   if ( answerTwo.innerText === correctAnswer) {
-   alert('Correct!')
+   answerTwo.innerText = 'Correct!'
     score ++
     scoreNum.innerHTML = score
+    setTimeout(function(){}, 1000)
        if (turnCounter == 10) { endGame() }
   }
   else {
-     alert('Incorrect')
+     answerTwo.innerText = 'Incorrect'
+     setTimeout(function(){}, 1000)
        if (turnCounter == 10) { endGame() }
   }
-placeQuestions(+turnCounter)
+setTimeout(placeQuestions(+turnCounter), 2000)
 }
 
 function checkAnswerThree() {
   turnCounter ++
-  timerNum.innerText = 30
   // console.log("checking...");
   if ( answerThree.innerText === correctAnswer) {
-   alert('Correct!')
+   answerThree.innerText = 'Correct!'
     score ++
     scoreNum.innerHTML = score
+    setTimeout(function(){}, 1000)
        if (turnCounter == 10) { endGame() }
   }
   else {
-     alert('Incorrect')
+     answerThree.innerText = 'Incorrect'
+     setTimeout(function(){}, 1000)
        if (turnCounter == 10) { endGame() }
   }
-placeQuestions(+turnCounter)
+setTimeout(placeQuestions(+turnCounter), 2000)
 }
 
 function checkAnswerFour() {
   turnCounter ++
-  timerNum.innerText = 30
   // console.log("checking...");
   if ( answerFour.innerText === correctAnswer) {
-   alert('Correct!')
+    answerFour.innerText = 'Correct!'
     score ++
     scoreNum.innerHTML = score
+    setTimeout(function(){}, 1000)
        if (turnCounter == 10) { endGame() }
   }
   else {
-     alert('Incorrect')
+      answerFour.innerText = 'Incorrect'
+      setTimeout(function(){}, 1000)
        if (turnCounter == 10) { endGame() }
   }
-placeQuestions(+turnCounter)
+setTimeout(placeQuestions(+turnCounter), 2000)
 }
 
 // console.log(quizList);
