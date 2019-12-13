@@ -1,6 +1,12 @@
 # GA---Trivia-Game
 A simple and elegent trivia game
 
+What is GA---Trivia Game?
+
+GA---Trivia is a simple trivia game focused on my love for video games. A technolgy used was HTML, CSS, and Javascript. An APIT called the Trivia Game API was used to pull questions from. Some technologies like Bootcamp were considered, but ultimately decided against. 
+
+Go to game: https://integerzerosf.github.io/GA---Trivia-Game/
+
 Bronze
 
 -website loads
@@ -46,6 +52,11 @@ Future goals
   -Add an options menu with Catagories, Difficulty, and Number of Questions
   -Adjust timer to reflect number of questions
   -Add animations and make itr more visually enjoyable
+  
+  Current Issues
+  
+  -The timer doesn't work on a per question basis
+  -The buttons are still there even with no answers
   
   How to play
   
