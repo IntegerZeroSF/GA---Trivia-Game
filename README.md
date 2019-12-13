@@ -46,3 +46,7 @@ Future goals
   -Add an options menu with Catagories, Difficulty, and Number of Questions
   -Adjust timer to reflect number of questions
   -Add animations and make itr more visually enjoyable
+  
+  How to play
+  
+  When ready, click on "Start Game." You will have a questions and four answers appear. Click on the one you think is right. If correct, you will get a point. This process repeats for 30 questions or 60 seconds, whichever is first. After you score is calculated, a messgae appears, and the game resets.
