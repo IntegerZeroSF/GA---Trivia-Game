@@ -57,6 +57,7 @@ Future goals
   
   -The timer doesn't work on a per question basis
   -The buttons are still there even with no answers
+  -I would like too not have an alert at the end
   
   How to play
   
